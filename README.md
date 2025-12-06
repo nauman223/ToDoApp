@@ -104,7 +104,6 @@ GET /todos/{id}
 POST /todos/add
 PUT /todos/{id}
 DELETE /todos/{id}
-GET /posts/search?q={query}
 ```
 
 Expected:

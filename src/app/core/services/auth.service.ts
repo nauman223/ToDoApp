@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'https://dummyjson.com/auth/login'; // or http://localhost:3000/login
+  private apiUrl = environment.apiUrl + '/auth/login'; // or http://localhost:3000/login
   http = inject(HttpClient);
   router = inject(Router);
 
@@ -17,7 +18,7 @@ export class AuthService {
           localStorage.setItem('token', res.accessToken);
           localStorage.setItem('user', JSON.stringify(res));
         }
-      })
+      }),
     );
   }
 
