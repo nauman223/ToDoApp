@@ -1,0 +1,7 @@
+<mat-card class="todo-card" (click)="openDetails()">
+  <mat-card-title>{{ todo.todo }}</mat-card-title>
+  <mat-card-subtitle>
+    Status: {{ todo.completed ? 'Completed' : 'Todo' }} <br />
+    ID: {{ todo.id}}
+  </mat-card-subtitle>
+</mat-card>

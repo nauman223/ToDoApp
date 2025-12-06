@@ -1,0 +1,14 @@
+@if (todo()) {
+<div class="container" >
+  <h2>Edit Todo</h2>
+  <app-todo-form
+    [initialData]="todo()"
+    (formSubmit)="updateTodo($event)"
+  ></app-todo-form>
+</div>
+} @else {
+<div>
+  <p class="fallback">Loading todo Edit...</p>
+</div>
+
+}

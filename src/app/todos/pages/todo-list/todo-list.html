@@ -1,0 +1,37 @@
+<div class="board-container" (scroll)="onScroll($event)">
+  <div class="board-header">
+    <h2>My Todo</h2>
+    <button mat-raised-button color="primary" (click)="createTodo()">Add Todo</button>
+  </div>
+
+  <div class="board" cdkDropListGroup>
+    <!-- The columns render ONCE -->
+    <app-todo-status-column
+      title="Todo"
+      listId="todo"
+      [items]="todoList"
+      [connectedTo]="['completed']"
+      (itemDropped)="onDrop($event)"
+    ></app-todo-status-column>
+
+    <app-todo-status-column
+      title="Completed"
+      listId="completed"
+      [items]="completedList"
+      [connectedTo]="['todo']"
+      (itemDropped)="onDrop($event)"
+    ></app-todo-status-column>
+  </div>
+
+  @if (isLoadingMore) {
+  <div class="load-more-spinner">
+    <div class="spinner-overlay">
+      <mat-progress-spinner
+        mode="indeterminate"
+        diameter="40"
+        color="primary"
+      ></mat-progress-spinner>
+    </div>
+  </div>
+  }
+</div>

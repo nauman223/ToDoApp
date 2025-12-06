@@ -1,0 +1,13 @@
+<form [formGroup]="form" class="todo-form" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Todo Description</mat-label>
+    <input matInput formControlName="todo" />
+    @if (form.get('todo')?.hasError('required')) {
+      <mat-error> Description is required </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-slide-toggle formControlName="completed"> Mark as Completed </mat-slide-toggle>
+
+  <button mat-raised-button color="primary" class="full-width" type="submit">Save</button>
+</form>

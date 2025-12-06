@@ -1,0 +1,35 @@
+@if (todo()) {
+
+<div class="container">
+  <mat-card class="details-card">
+    <mat-card-title>{{ todo()!.todo }}</mat-card-title>
+
+    <mat-card-subtitle>
+      Status:
+      <strong [style.color]="todo()!.completed ? 'green' : 'red'">
+        {{ todo()!.completed ? 'Completed' : 'Todo' }}
+      </strong>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      <p><strong>Todo ID:</strong> {{ todo()!.id }}</p>
+      <p><strong>User ID:</strong> {{ todo()!.userId }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+
+      <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+
+      <button mat-button (click)="router.navigate(['/todos'])">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+} @else {
+
+<div>
+  <p class="fallback">Loading todo details...</p>
+</div>
+
+}

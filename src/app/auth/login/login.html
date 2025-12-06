@@ -1,0 +1,50 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form-area">
+      <!-- Email -->
+      <label class="field-label" for="email">Your email</label>
+      <mat-form-field appearance="fill" class="input-field">
+        <input matInput name="email" placeholder="Enter your email" formControlName="username" />
+
+        @if (form.get('username')?.hasError('required')) {
+        <mat-error>Email is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Password -->
+      <label class="field-label" for="password">Password</label>
+      <mat-form-field appearance="fill" class="input-field">
+        <input
+          matInput
+          placeholder="Enter your password"
+          type="password"
+          name="password"
+          formControlName="password"
+        />
+
+        @if (form.get('password')?.hasError('required')) {
+        <mat-error>Password is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- LOGIN BUTTON -->
+      <button
+        mat-raised-button
+        color="primary"
+        class="login-btn"
+        [disabled]="loading || form.invalid"
+      >
+        @if (!loading) {
+        <span>Login</span>
+        } @else {
+        <mat-progress-spinner
+          mode="indeterminate"
+          diameter="20"
+          color="primary"
+          class="spinner"
+        ></mat-progress-spinner>
+        }
+      </button>
+    </form>
+  </div>
+</div>

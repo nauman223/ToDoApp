@@ -1,0 +1,19 @@
+<div class="column">
+  <h3>{{ title }}</h3>
+
+  <div
+    cdkDropList
+    [id]="listId"
+    [cdkDropListData]="items"
+    [cdkDropListConnectedTo]="connectedTo"
+    (cdkDropListDropped)="drop($event)"
+    class="drop-area"
+  >
+
+    @for (item of items; track item.id) {
+    <div class="card-wrapper" cdkDrag [cdkDragData]="item">
+      <app-todo-card [todo]="item"></app-todo-card>
+    </div>
+    }
+  </div>
+</div>

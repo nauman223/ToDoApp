@@ -1,0 +1,18 @@
+.todo-card {
+  padding: 5px 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  mat-card-title {
+    font-size: 14px;
+  }
+
+  mat-card-subtitle {
+    font-size: 12px;
+  }
+}
