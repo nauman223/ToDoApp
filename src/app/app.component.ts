@@ -21,7 +21,7 @@ export class AppComponent {
         filter(
           (event) => event instanceof RouteConfigLoadStart || event instanceof RouteConfigLoadEnd,
         ),
-        debounceTime(50), // prevents flickering flashes
+        debounceTime(50),
       )
       .subscribe((event) => {
         this.loading.set(event instanceof RouteConfigLoadStart);
