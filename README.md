@@ -118,13 +118,17 @@ Expected:
 ```
 src/
  ├── app/
- │   ├── core/
  │   ├── auth/
+ │   ├── core/
+ │   ├── layout/
+ │   ├── shared/
+ │   │   ├── components/
+ │   │   ├── directives/
+ │   │   └── pipes/
  │   ├── todos/
  │   │   ├── pages/
  │   │   ├── components/
  │   │   └── state/
- │   ├── shared/
  │   └── app.config.ts
  ├── assets/
  └── environments/
